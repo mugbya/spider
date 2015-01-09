@@ -13,6 +13,6 @@ class MokoSpider(scrapy.Spider):
     def parse(self, response):
         for divs in response.xpath('//div[@class="cover"]'):
             img_url = divs.xpath('.//img/@src2').extract()[0]
-            urlItem = MokoItem()
+            urlItem = SpiderItem()
             urlItem['url'] = img_url.encode('utf-8')
             yield urlItem
